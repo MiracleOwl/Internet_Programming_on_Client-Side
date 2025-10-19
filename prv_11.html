@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let prv = parseInt(prompt("Vnesi prv broj:"));
+    let vtor = parseInt(prompt("Vnesi vtor broj:"));
+    let tret = parseInt(prompt("Vnesi tret broj:"));
+    let shto = prompt("Vnesi MEDIAN za presmetka na medijana ili MEAN za moda!")
+    if(shto === "MEDIAN")
+    {
+        if((prv>vtor && prv<tret) || (prv<vtor && prv>tret))
+        {
+            alert("Medijana e" + prv)
+        }
+        else if(vtor>prv && vtor<tret || (vtor<prv && vtor>tret))
+        {
+            alert(`Medijana e ${vtor}`);
+        }
+        else
+        {
+            alert(`Medijana e ${tret}`)
+        }
+    }
+    else if(shto === "MEAN")
+    {
+       let moda = (prv+vtor+tret)/3;
+       alert(`Moda e ${moda}`)
+    }
+</script>
+</body>
+</html>

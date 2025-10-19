@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p id="pishi"></p>
+    <script>
+        const korisnici = [];
+        while(true) {
+            let korisnik = prompt();
+            if (korisnik === "*") {
+                break;
+            }
+            let delovi = korisnik.split(" ")
+            if (delovi.length < 4) continue;
+
+            const user = {
+                name: delovi[0],
+                surname: delovi[1],
+                mail: delovi[2],
+                mobile: delovi[3]
+            };
+            if (user.mobile.startsWith("073")) {
+                korisnici.push(user);
+            }
+        }
+        korisnici.sort((a,b) => a.name.localeCompare(b.name));
+
+        document.getElementById("pishi").innerText = JSON.stringify(korisnici,null,2);
+    </script>
+</body>
+</html>

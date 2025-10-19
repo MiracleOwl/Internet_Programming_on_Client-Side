@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let full = prompt("Vnesi korisnici: ")
+        let parts = full.split("; ")
+        let gotovo = []
+
+        let mejl = prompt("Vnesi mejl provajder: ").trim()
+
+            for(let i=0;i<parts.length;i++) {
+                let part = parts[i].split(",").map(x => x.trim())
+                let user
+                if (part[2].endsWith(mejl + ".com")) {
+                    if (part[3].startsWith("070") || part[3].startsWith("071") || part[3].startsWith("072")) {
+                         user = {
+                            name: part[0],
+                            surname: part[1],
+                            mail: part[2],
+                            phone: part[3],
+                            phoneOperator: "Telekom"
+                        }
+                    } else if (part[3].startsWith("073") || part[3].startsWith("074")) {
+                         user = {
+                            name: part[0],
+                            surname: part[1],
+                            mail: part[2],
+                            phone: part[3],
+                            phoneOperator: "Lyca Mobile"
+                        }
+                    }
+                        else if(part[3].startsWith("079"))
+                        {
+                            user ={
+                                name: part[0],
+                                surname: part[1],
+                                mail: part[2],
+                                phone: part[3],
+                                phoneOperator: "MTEL"
+                            }
+                    }
+                        else {
+                        user = {
+                            name: part[0],
+                            surname: part[1],
+                            mail: part[2],
+                            phone: part[3],
+                            phoneOperator: "A1"
+                        }
+                    }
+                    gotovo.push(user);
+                }
+            }
+            let json = JSON.stringify(gotovo,null,2)
+            alert(json)
+    </script>
+</body>
+</html>

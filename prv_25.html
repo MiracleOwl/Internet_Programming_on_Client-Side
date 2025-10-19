@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let celo = prompt()
+        let delovi = celo.split(";")
+
+        let najdobarTrkach = ""
+        let najdobarProsek = Infinity
+
+        for(let i=0;i<delovi.length;i++)
+        {
+            let del = delovi.split(",");
+
+            let ime = del[1]
+            let prezime = del[2]
+            let vreme = del.slice(3).map(Number)
+
+            let suma = 0;
+            for(let v of vreme)
+            {
+                suma+=v;
+            }
+            let prosek = suma/vreme.length
+
+            if(prosek<najdobarProsek)
+            {
+                najdobarProsek = prosek;
+                najdobarTrkach = ime + " " + prezime;
+            }
+        }
+        document.body.innerHTML = najdobarTrkach;
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let input = prompt("Vnesi string:");
+
+        let n = parseInt(prompt("Vnesi broj:"));
+
+        let length = input.length;
+        if(length === 0)
+        {
+            alert("Prazno!");
+        }
+        else
+        {
+            n=n%length;
+            let shift = "";
+            if(n>0)
+            {
+                shift = input.slice(-n) + input.slice(0,length -n);
+            }
+            else if(n<0)
+            {
+                let move = Math.abs(n);
+                shift = input.slice(move) + input.slice(0,length-n);
+            }
+            else
+            {
+                shift = input;
+            }
+            alert("Shifte string: " + shift);
+        }
+
+    </script>
+</body>
+</html>

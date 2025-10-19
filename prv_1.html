@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let type = prompt("Vnesi C za konverzija vo Farenheit ili F za vo Celzius");
+        type = type.toUpperCase();
+
+        let temperatura = parseFloat(prompt("Vnesi temperatura: "));
+        if(isNaN(temperatura))
+        {
+            alert("Greshka!Vnesena temperatura ne e broj!");
+        }
+        else
+        {
+            if(type === 'F')
+            {
+            temperatura=temperatura * 9/5 + 32;
+            alert(temperatura + " farenheit ");
+            }
+            else if(type === 'C')
+            {
+            temperatura=(temperatura-32) * 5/9;
+            alert(temperatura + " celzius");
+            }
+            else
+            {
+                alert("Ne postoi C ili F!");
+            }
+        }
+    </script>
+</body>

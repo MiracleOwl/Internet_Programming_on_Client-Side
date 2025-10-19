@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function Prost(broj)
+        {
+            for(let i=2;i<broj;i++)
+            {
+                if(broj%i===0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        for(let i=0;i<100000000000000;i++)
+        {
+            let a = parseInt(prompt("Vnesi broj:"));
+            if(isNaN(a))
+            {
+                break;
+            }
+            else
+            {
+                if(!Prost(a))
+                {
+                    alert("Brojot ne e prost!");
+
+                }
+                else
+                {
+                    alert("Brojot e prost!");
+                }
+            }
+        }
+
+
+    </script>
+</body>
+</html>

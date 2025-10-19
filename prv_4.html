@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let a;
+        let temp = -10000;
+        let cigan;
+       for(let i=0;i<5;i++)
+       {
+          a= parseInt(prompt("Vnesi broj!"));
+          let edinici = a%10;
+          let desetki = a/10%10;
+          let stotki = a/100;
+          let zbir = edinici + desetki+stotki;
+          if(zbir>temp) {
+              temp = zbir;
+              cigan = a;
+          }
+       }
+       alert(`Brojot e: ${cigan}`);
+    </script>
+</body>
+</html>

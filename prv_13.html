@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let niza = prompt("Enter a sentence:");
+        let bukva = prompt("Enter a character to search:");
+        let odeli = niza.split("");
+        let pozicii = [];
+
+        for(let i=0;i<niza.length;i++)
+        {
+            if(odeli[i] === bukva)
+            {
+                pozicii.push(i);
+            }
+        }
+        alert("Character " + bukva + " found at positions: "+ pozicii);
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let recenica = prompt("Vnesi recenica:");
+        let zbor = recenica.split(" ");
+        let rezultat = [];
+
+        let i = 0;
+        while(i<zborovi.length-1)
+        {
+            let prvi = zborovi[i];
+            let vtori = zborovi[i+1];
+            let spoeno = null;
+
+            for(let j=0;j<=Math.min(prvi.length,vtori.length);j++)
+            {
+                let krajPrv = prvi.slice(-j);
+                let pocetokVtori = vtori.slice(0,j);
+                if(krajPrv === pocetokVtori)
+                {
+                    spoeno = prvi + vtori.slice(j);
+                    break;
+                }
+            }
+            if(spoeno)
+            {
+                rezultat.push(spoeno);
+                i+=2;
+            }
+            else
+            {
+                rezultat.push(prvi);
+                i+=1;
+            }
+        }
+        if(i===zborovi.length - 1)
+        {
+            rezultat.push(zborovi[i]);
+        }
+        alert("Rezultat: " + rezultat.join(" "));
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Vnesi broevi (prekini so znak):</h2>
+<div id="output"></div>
+
+    <script>
+        let input;
+        let counter=0;
+        let negativni=[];
+
+        while(true)
+        {
+            input = prompt("Vnesi broj:");
+            let number = parseInt(input);
+            if(isNaN(number))
+            {
+                break;
+            }
+            if(number<0 && number%2 ===0)
+            {
+                negativni.push(number);
+                counter++;
+            }
+        }
+        const outDiv = document.getElementById("output");
+        outDiv.innerHTML = `<p>Parni negativni broevi: ${negativni.join(", ")}</p>`;
+        outDiv.innerHTML += `<p>Vkupno: ${counter}</p>`;
+    </script>
+</body>
+</html>

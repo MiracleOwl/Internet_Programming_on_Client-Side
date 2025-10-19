@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+      let P,L,dolzina,razlika;
+        let forma = prompt("Vnesete forma:");
+        if(forma === "krug" || forma ==="Krug")
+        {
+            dolzina = parseInt(prompt("Vnesete radius:"))
+            L = 2*dolzina*3.14;
+            P= Math.pow(dolzina,2)*3.14;
+            if(L>P)
+            {
+              razlika = L-P;
+              alert(`Perimetar na krug e pogolem od plostina za ${razlika}`);
+            }
+            else
+            {
+              razlika = P-L;
+              alert(`Plostina na krug e pogolem od Perimetar za ${razlika}`)
+            }
+        }
+        else if(forma === "kvadrat" || forma ==="Kvadrat")
+        {
+          dolzina = parseInt(prompt("Vnesete dolzina na strana:"))
+          L = 4*dolzina;
+          P = Math.pow(dolzina,2);
+          if(L>P)
+          {
+            razlika = L-P;
+            alert(`Perimetar na kvadrat e pogolem od plostina za ${razlika}`);
+          }
+          else
+          {
+            razlika = P-L;
+            alert(`Plostina na kvadrat e pogolem od Perimetar za ${razlika}`)
+          }
+        }
+        else
+        {
+          alert("Ne vnesovte ni kvadrat ni krug!")
+        }
+    </script>
+</body>
+</html>

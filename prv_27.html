@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p id="pishi"></p>
+    <script>
+        let sve = prompt();
+        let uredeno = []
+
+        let delovi = sve.split(";")
+        for(let i=0;i<delovi.length;i++)
+        {
+            let del = delovi[i].trim().split(" ")
+            let ocenke = []
+            let suma = 0
+            let counter = 0
+            for(let j=2;j<del.length;j++)
+            {
+                let grade = Number(del[j])
+                ocenke.push(grade)
+                suma += grade
+                counter++
+            }
+            let average = suma/counter
+            const student = {
+                name: del[0],
+                index: del[1],
+                grades: ocenke,
+                average: Number(average.toFixed(2))
+            };
+            uredeno.push(student)
+        }
+        uredeno.sort((a, b)=>a.name.localeCompare(b.name))
+
+        let json = JSON.stringify(uredeno,null,2)
+
+        document.getElementById("pishi").innerHTML = "Students ordered by name:<br><pre>"+json+"</pre>";
+    </script>
+</body>
+</html>

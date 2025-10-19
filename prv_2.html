@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function Palindrom(number){
+            const str = number.toString();
+            const reversed = str.split('').reverse().join('');
+            return str === reversed;
+        }
+        let prv = parseInt(prompt("Vnesi go prviot broj:"));
+        let vtor = parseInt(prompt("Vnesi go vtoriot broj:"));
+        let sum = prv+vtor;
+        if(Palindrom(sum))
+        {
+            alert(`${sum} e palindrom!`);
+        }
+        else
+        {
+            alert(`${sum} ne e palindrom`);
+        }
+
+    </script>
+</body>
+</html>

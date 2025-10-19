@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let dvazbr = prompt("Enter two words separated by a spaace: ");
+        let zborovi = dvazbr.split(" ");
+        let zbor1 = zborovi[0];
+        let zbor2 = zborovi[1];
+
+        function countLetters(word)
+        {
+            let count = {};
+            for(let char of word)
+            {
+                count[char] = (count[char] || 0) + 1;
+            }
+            return count;
+        }
+        let count1 = countLetters(zbor1);
+        let count2 = countLetters(zbor2);
+
+        let razlika = [];
+        for(let char in count1)
+        {
+            if(!count2[char] || count1[char] !== count2[char])
+            {
+                razlika.push(char);
+            }
+        }
+        for(let char in count2)
+        {
+            if(!count1[char])
+            {
+                razlika.push(char);
+            }
+        }
+        if(razlika.length===0)
+        {
+            alert("No difference found!")
+        }
+        else
+        {
+            alert("Different letters: " + razlika.join(", "));
+        }
+    </script>
+</body>
+</html>

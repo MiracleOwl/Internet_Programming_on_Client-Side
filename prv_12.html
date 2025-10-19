@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let input = prompt("Vnesi recenica i ke ti gi trgnam site broevi pogolemi ili ednakvi na 32!");
+    let output = input.replace(/\d{2,3}/g, match =>{
+        let num = parseInt(match);
+        return num>= 32 ? String.fromCharCode(num) : match;
+    });
+    alert(output);
+</script>
+</body>
+</html>

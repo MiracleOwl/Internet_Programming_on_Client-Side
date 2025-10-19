@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function remove(input)
+        {
+            return input.replace(/[^a-zA-Z\s]/g,'');
+        }
+        function duplicates(input)
+        {
+            let result = '';
+            input.toLowerCase();
+            for(let i=0;i<input.length;i++)
+            {
+                let char = input[i];
+                if(!result.includes(char))
+                {
+                    result+=char;
+                }
+            }
+            return result;
+        }
+        const recenica = prompt("Vnesi recenica");
+        const filter = remove(recenica);
+        const duplikati = duplicates(filter);
+        alert(duplikati);
+    </script>
+</body>
+</html>

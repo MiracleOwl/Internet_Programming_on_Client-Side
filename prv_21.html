@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let recenica1 = prompt();
+        let recenica2 = prompt();
+        let recenica3 = prompt();
+
+        let zborovi1 = recenica1.split(" ");
+        let zborovi2 = recenica2.split(" ");
+        let zborovi3 = recenica3.split(" ");
+
+        let sitezborovi = zborovi1.concat(zborovi2,zborovi3);
+
+        let najdolgZbor = sitezborovi[0];
+        for(let i=1;i<sitezborovi.length;i++)
+        {
+            if(sitezborovi[i].length>najdolgZbor.length)
+            {
+                najdolgZbor = sitezborovi[i];
+            }
+        }
+        alert("Najdolgiot zbor e: "+najdolgZbor);
+    </script>
+</body>
+</html>

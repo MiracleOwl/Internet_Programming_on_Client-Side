@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function palindrom(number)
+    {
+        const str = number.toString();
+        const reversed = str.split('').reverse().join('');
+        return str === reversed;
+    }
+
+     let broj = parseInt(prompt("Vnesi cetiricifren broj:"));
+        let edinici = broj % 10;
+        let desetki = broj / 10 % 10;
+        let stotki = broj / 100 % 10;
+        let iljadi = broj / 1000;
+        zbir = edinici + desetki + stotki + iljadi;
+        if (palindrom(broj) && broj % zbir === 0) {
+            alert(`Brojot ${broj} e palindrom i zbir na negovi cifri (${zbir}) e deliv so nego!`);
+        } else if (!palindrom(broj) && broj % zbir === 0) {
+            alert(`Brojot ${broj} ne e palindrom i zbir na negovi cifri (${zbir}) e deliv so nego!`);
+        } else if (palindrom(broj) && !broj % zbir === 0) {
+            alert(`Brojot ${broj} e palindrom i zbir na negovi cifri (${zbir}) ne se delivi so nego!`);
+        } else {
+            alert('Brojot ne e ni palindrom ni se deli so zbirot na cifrite negovi!')
+        }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+            <p id="pishi"></p>
+            <script>
+                let movies = [];
+                let counter = 0;
+                while(true)
+                {
+                    let movie = prompt();
+                    if(movie === "/") break;
+
+                    let delovi = movie.split(", ");
+                    if(delovi.length<3) continue;
+
+                    const film = {
+                        name: delovi[0],
+                        genre: delovi[1],
+                        rating: parseFloat(delovi[2])
+                    };
+                    if(film.rating>=4)
+                    {
+                        movies.push(film);
+                        counter++;
+                    }
+                }
+                let zanr = prompt("Vnesi zanr:")
+
+                movies.sort(function (a,b){
+                    return b.rating - a.rating;
+                });
+
+                let text = "The best " + zanr +" movies:" + "<br>";
+
+                for(let i=0;i<counter;i++)
+                {
+                    if(movies[i].genre.toLowerCase()===zanr.toLowerCase())
+                    {
+                        text += movies[i].name + "-" + movies[i].rating + "<br>";
+                    }
+                }
+                document.getElementById("pishi").innerHTML = text;
+            </script>
+    </body>
+    </html>

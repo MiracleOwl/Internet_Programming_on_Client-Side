@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let brojke = prompt("Vnesete broevi: ")
+        let nums = []
+        let broj = brojke.split(",")
+        for(let i=0;i<broj.length;i++)
+        {
+            let squar = broj[i]*broj[i]
+            let isEven = broj[i]%2===0
+            const cifra = {
+                number: parseInt(broj[i]),
+                squared: squar,
+                isEven: isEven
+            };
+            nums.push(cifra)
+        }
+        nums.sort((a, b ) => a.number - b.number);
+
+        let json = JSON.stringify(nums,null,2)
+
+        alert(json)
+    </script>
+</body>
+</html>

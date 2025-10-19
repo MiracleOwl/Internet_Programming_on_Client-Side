@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let mobilen = prompt("Vnesete go mobilniot broj:");
+
+        let niza = mobilen.split("");
+        if(niza[2]=== '0' || niza[2]==='1' || niza[2]==='2')
+        {
+            alert(`${niza.slice(0, 3).join("")}/${niza.slice(3, 6).join("")}-${niza.slice(6, 9).join("")} - Telekom`);
+        }
+        else if(niza[2] === '3')
+        {
+            alert(`${niza.slice(0, 3).join("")}/${niza.slice(3, 6).join("")}-${niza.slice(6, 9).join("")} - MTEL`);
+        }
+        else if(niza[2] === '4')
+        {
+            alert(`${niza.slice(0, 3).join("")}/${niza.slice(3, 6).join("")}-${niza.slice(6, 9).join("")} - Telekabel`);
+        }
+        else if(niza[2] === '5' || niza[2] ==='6' || niza[2] === '7' || niza[2]==='8')
+        {
+            alert(`${niza.slice(0, 3).join("")}/${niza.slice(3, 6).join("")}-${niza.slice(6, 9).join("")} - A1`);
+        }
+        else
+        {
+            alert(`${niza.slice(0, 3).join("")}/${niza.slice(3, 6).join("")}-${niza.slice(6, 9).join("")} - LajkaMobile`);
+        }
+
+</script>
+</body>
+</html>

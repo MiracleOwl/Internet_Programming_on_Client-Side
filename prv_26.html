@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="pishi"></p>
+    <script>
+        let books = parseInt(prompt("Enter the number of books you want to add:"));
+        let knigi = [];
+        for(let i=0;i<books;i++)
+        {
+            let title = prompt("Enter the title of the book:")
+            let author = prompt("Enter the author of the book:")
+            let alreadyRead = confirm("Have you already read this book?(OK for yes,Cancel for no")
+            const knigga = {
+                title: title,
+                author: author,
+                alreadyRead: alreadyRead
+            }
+            knigi.push(knigga)
+        }
+        let nema = "Ushte treba da ja prochitate: "
+        let ima = "Ja imate prochitano: "
+
+        for(let i=0;i<books;i++)
+        {
+            if(knigi[i].alreadyRead === true)
+            {
+                ima+= knigi[i].title + " od " + knigi[i].author
+            }
+            else
+            {
+                nema+= knigi[i].title + " od " + knigi[i].author
+            }
+        }
+        document.getElementById("pishi").innerHTML = nema + "<br>" + ima
+    </script>
+</body>
+</html>
