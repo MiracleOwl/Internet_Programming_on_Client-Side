@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Highlight cars</title>
+    <style>
+        body{
+            font-family: Arial,sans-serif;
+            display: flex;
+            justify-content: center;
+            padding-top: 30px;
+        }
+        .container
+        {
+            text-align: center;
+            background-color: white;
+            padding:20px;
+            border-radius: 10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+        }
+        h1{
+            font-size: 28px;
+        }
+        #grid
+        {
+            display: grid;
+            grid-template-columns: repeat(5,60px);
+            grid-gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        .card{
+            background-color: white;
+            border:1px solid #999;
+            padding:15px;
+            font-size:18px;
+            border-radius: 8px;
+            cursor: default;
+            transition: background-color 0.3s;
+        }
+        .highlight{
+            background-color: #b79ee6;
+            color:white;
+        }
+        button{
+            padding:5px 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="pishi">Random number: </h1>
+        <br> <button id="random">Generate Random Number</button>
+        <div id="grid"></div>
+    </div>
+    <script>
+        const grid = document.getElementById('grid')
+        const btn = document.getElementById('random');
+        const pishi = document.getElementById('pishi');
+
+        const totalCards = 25;
+        const numbers = []
+
+        for(let i=0;i<totalCards;i++)
+        {
+            const randomNum = Math.floor(Math.random()*100)+1;
+            numbers.push(randomNum);
+
+            const card = document.createElement('div')
+            card.classList.add('card')
+            card.textContent = randomNum;
+            grid.appendChild(card)
+        }
+        const cards = document.querySelectorAll('.card');
+
+        btn.addEventListener('click',() => {
+            const rand = Math.floor(Math.random()*10)+1
+            pishi.textContent = 'Random number: ' + rand
+
+            cards.forEach(card =>{
+                card.classList.remove('highlight')
+                const num = Number(card.textContent)
+                if(num%rand ===0)
+                {
+                    card.classList.add('highlight');
+                }
+            })
+        })
+    </script>
+</body>
+</html>

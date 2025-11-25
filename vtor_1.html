@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-color: lightblue;
+            overflow: hidden;
+        }
+        #jet{
+            width: 100px;
+            position:absolute;
+        }
+        #alien{
+            position: absolute;
+            width:50px;
+        }
+        .bullet{
+            position: absolute;
+            width:15px;
+            height: 5px;
+            background: red;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <button id="up">Up</button>
+    <button id="down">Down</button>
+    <button id="shoot">Shoot</button> <br>
+    <img id="jet" src="jet_vtor_1.png">
+    <img id="alien" src="alien_vtor_1.png">
+
+    <script>
+        const up = document.getElementById("up");
+        const down = document.getElementById("down");
+        const shoot = document.getElementById("shoot");
+
+        const jet = document.getElementById("jet");
+        const alien = document.getElementById("alien");
+        let jetY = 200;
+
+        let alienX = Math.floor(Math.random()*(window.innerWidth-150)+150);
+        let alienY = Math.floor(Math.random()*(window.innerHeight-150));
+        alien.style.left = alienX + "px";
+        alien.style.top = alienY + "px";
+
+        down.addEventListener("click",() => {
+            if(jetY < window.innerHeight - 120) jetY+=20;
+            jet.style.top = jetY + "px";
+        });
+        up.addEventListener("click",() =>{
+            if(jetY>0) jetY-=20;
+            jet.style.top = jetY + "px";
+        });
+        shoot.addEventListener("click",() =>{
+            const bullet = document.createElement("div");
+            bullet.classList.add("bullet");
+            bullet.style.left = "140px"
+            bullet.style.top = (jetY + 40) + "px";
+            document.body.appendChild(bullet);
+
+            let bulletX = 140;
+            const bulletInterval = setInterval(() =>{
+                bulletX += 15;
+                bullet.style.left = bulletX + "px";
+
+                const bulletY = parseInt(bullet.style.top);
+                if(bulletX>alienX-20 && bulletX<alienX+40 && bulletY>alienY-20 && bulletY<alienY+40)
+                {
+                    alien.remove();
+                    bullet.remove();
+                    clearInterval(bulletInterval);
+                    alert("Go pogodi vonzemjanecot!");
+                }
+                if(bulletX>window.innerWidth)
+                {
+                    bullet.remove();
+                    clearInterval(bulletInterval);
+                }
+            },30);
+        });
+
+    </script>
+</body>
+</html>

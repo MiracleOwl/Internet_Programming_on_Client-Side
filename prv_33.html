@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        td, th{
+            border: 1px solid black;
+            padding: 8px    ;
+        }
+    </style>
+</head>
+<body>
+    <p>Ime na produktot <input type="text" id="imeInput"></p>
+    <p>Sifra <input type="text" id="sifraInput"></p>
+    <p>Cena <input type="text" id="cenaInput"></p>
+    <p>Prodadena Kolicina <input type="text" id="kolicinaInput"></p>
+    <button id="dodadiBtn">Dodadi</button>
+
+    <table>
+        <thead>
+            <th>Ime</th>
+            <th>Sifra</th>
+            <th>Cena</th>
+            <th>Kolicina</th>
+            <th>Vkupna prodazba</th>
+        </thead>
+        <tbody id="telo"></tbody>
+    </table>
+
+    <script>
+        const btn = document.getElementById('dodadiBtn')
+        const telo = document.getElementById('telo')
+
+        btn.addEventListener('click',function (){
+            const ime = document.getElementById('imeInput').value
+            const sifra = document.getElementById('sifraInput').value
+            const cena = document.getElementById('cenaInput').value
+            const kolicina = document.getElementById('kolicinaInput').value
+
+            if(ime === '' || sifra==='' || isNaN(cena)||cena<=0 || isNaN(kolicina)||kolicina<=0)
+            {
+                alert("Vnesi gi site polinja so validni vrednosti!")
+                return;
+            }
+            const vkupno = cena*kolicina
+            const red = document.createElement('tr')
+
+            red.innerHTML = `
+            <td>${ime}</td>
+            <td>${sifra}</td>
+            <td>${cena}</td>
+            <td>${kolicina}</td>
+            <td>${vkupno}</td>`;
+
+        telo.appendChild(red);
+
+            document.getElementById('imeInput').value = ''
+            document.getElementById('sifraInput').value=''
+            document.getElementById('cenaInput').value=''
+            document.getElementById('kolicinaInput').value=''
+        })
+    </script>
+</body>
+</html>

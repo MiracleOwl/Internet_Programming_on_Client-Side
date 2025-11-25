@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prodazba</title>
+    <style>
+
+        table{
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        th,td{
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+        <div class="container">
+            <p>Ime <input type="text" id="imeInput"></p>
+            <p>Prodadena kolicina <input type="text" id="kolicinaInput"></p>
+            <button id="azurirajBtn">Azuriraj</button>
+            <table>
+                <thead>
+                    <th>Ime</th>
+                    <th>Sifra</th>
+                    <th>Cena</th>
+                    <th>Kolicina</th>
+                    <th>Vkupna prodazba</th>
+                </thead>
+                <tbody>
+                    <tr id="jabolki">
+                        <td>Jabolki</td>
+                        <td>122</td>
+                        <td class="cena">20</td>
+                        <td class="kolicina">0</td>
+                        <td class="vkupno">0</td>
+                    </tr>
+                    <tr id="krushi">
+                        <td>Krushi</td>
+                        <td>123</td>
+                        <td class="cena">15</td>
+                        <td class="kolicina">0</td>
+                        <td class="vkupno">0</td>
+                    </tr>
+                    <tr id="creshi">
+                        <td>Creshi</td>
+                        <td>124</td>
+                        <td class="cena">100</td>
+                        <td class="kolicina">0</td>
+                        <td class="vkupno">0</td>
+                    </tr>
+                    <tr id="praski">
+                        <td>Praski</td>
+                        <td>125</td>
+                        <td class="cena">55</td>
+                        <td class="kolicina">0</td>
+                        <td class="vkupno">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script>
+            const btn = document.getElementById('azurirajBtn');
+
+            btn.addEventListener('click', function () {
+                const ime = document.getElementById("imeInput").value.trim();
+                const prodadenaKolicina = Number(document.getElementById('kolicinaInput').value)
+
+                if(ime === '' || isNaN(prodadenaKolicina) ||  prodadenaKolicina<=0)
+                {
+                    alert("Vnesi ime i pozitivna kolicina!")
+                    return;
+                }
+                const red = document.getElementById(ime.toLowerCase())
+
+                if(!red)
+                {
+                    alert("Nema proizvod so toa ime");
+                    return;
+                }
+                const cenaCell = red.querySelector('.cena')
+                const kolicinaCell = red.querySelector('.kolicina')
+                const vkupnoCell = red.querySelector('.vkupno')
+
+                const cena = Number(cenaCell.textContent);
+                const tekovnaKolicina = Number(kolicinaCell.textContent)
+
+                const novaKolicina = tekovnaKolicina + prodadenaKolicina
+                kolicinaCell.textContent = novaKolicina;
+
+                const vkupnaProdazba = novaKolicina * cena
+                vkupnoCell.textContent = vkupnaProdazba
+
+                document.getElementById('imeInput').value = ''
+                document.getElementById('kolicinaInput').value = ''
+            });
+        </script>
+</body>
+</html>

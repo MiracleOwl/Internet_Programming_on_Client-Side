@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div><p>Vnesi n:</p><input type="text" id="numInput"><br><button id="generate">Генерирај</button><br></div>
+    <p id="pishi"></p>
+    <table id="resultTable">
+        <tr>
+            <th>Парни</th>
+            <th>Непарни</th>
+        </tr>
+        <tr>
+            <td id="evenCounter"></td>
+            <td id="oddCounter"></td>
+        </tr>
+    </table>
+    <script>
+        const btn = document.getElementById('generate')
+        const output = document.getElementById('pishi')
+        const evenCell = document.getElementById('evenCounter')
+        const oddCell = document.getElementById('oddCounter')
+
+        btn.addEventListener('click',function()
+        {
+            const n = parseInt(document.getElementById('numInput').value)
+            if(isNaN(n)|| n<=0)
+            {
+                output.textContent = "Vnesi poitiven broj!";
+                return;
+            }
+            let numbers = []
+            let even = 0
+            let odd = 0
+
+            for(let i=0;i<n;i++)
+            {
+                let num = Math.floor(Math.random()*100)
+                numbers.push(num)
+                if(num%2===0){
+                    even++;
+                }
+                else
+                {
+                    odd++;
+                }
+            }
+            output.textContent = numbers.join(' ')
+
+            evenCell.textContent = even
+            oddCell.textContent = odd
+
+            evenCell.className = ''
+            oddCell.className = ''
+
+            if(even>odd)
+            {
+                evenCell.classList.add('green')
+                oddCell.classList.add('red')
+            }
+            else if(odd>even)
+            {
+                oddCell.classList.add('green')
+                evenCell.classList.add('red')
+            }
+            else
+            {
+                evenCell.classList.add('blue')
+                oddCell.classList.add('blue')
+            }
+        });
+        
+    </script>
+</body>
+</html>
